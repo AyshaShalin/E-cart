@@ -1,0 +1,16 @@
+
+.form{
+    width: 700px;
+    position: absolute;
+    left: 400px;
+} 
+ a:link{
+    text-decoration: none;
+} 
+.ul1{
+    padding-left: 0px;
+}
+.form{
+    top: 80px;
+    margin-bottom: 50px;
+} 

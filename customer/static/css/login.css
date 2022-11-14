@@ -1,0 +1,86 @@
+
+/* .container-{
+    width: 604px;
+    height: 600px;
+    /* background-color: rgb(255, 245, 240); */
+    /* position: absolute;
+    left:373px;
+    top:51px;
+    margin-bottom: 100px;
+    padding-bottom: 150px; */
+/*    
+} */ 
+/* #head{
+    font-family:Arial, Helvetica, sans-serif ;
+    font-size: 28pt;
+    position: absolute;
+    left: 189px;
+    top: 34px;
+} */
+
+/* .log-form{
+    width: 504px;
+
+    padding-left: 109px;
+    padding-top: 89px;
+}
+.btn1{
+    position: absolute;
+    left: 269px;
+    top: 400px;
+    background-color: rgb(161, 34, 34);
+    width: 100px;
+}
+.invite{
+    position: absolute;
+    top: 486px;
+    left: 111px;
+} */
+/* .snupbtn{
+    position: absolute;
+    left: 274px;
+    top: 544px;
+    width: 250px;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.row{
+    background-color: white;
+    border-radius: 30px;
+    
+}
+#row{
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px rgb(22, 15, 15);
+}
+.img-fluid{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.btn{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.btn:hover{
+    background-color: black;
+    color:white;
+    
+}
+
+
+
+
+
+
+

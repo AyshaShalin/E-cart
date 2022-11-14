@@ -1,0 +1,41 @@
+#name1{
+    width: 500px;
+    height: 50px;
+}
+#name2{
+    width: 500px;
+    height: 50px;
+}
+#name3{
+    width: 500px;
+    height: 50px;
+}
+#pwd{
+    width: 500px;
+    height: 50px;
+}
+#date{
+    width: 500px;
+    height: 50px;
+}
+#mob{
+    width: 500px;
+    height: 50px;
+}
+#form{
+    padding-top: 0px;
+    padding-left: 400px;
+}
+#btn1{
+    width: 200px;
+    position: absolute;
+    left: 660px;   
+}
+#btn2{
+    width: 200px;
+    position: absolute;
+    left: 430px;  
+}
+#form{
+   border: 1px;
+}

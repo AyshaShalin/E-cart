@@ -1,0 +1,15 @@
+#address{
+    width: 500px;
+    height: 100px;
+}
+#btn1{
+        width: 200px;
+        position: absolute;
+       
+        left: 465px;
+}
+#btn2{
+    width: 200px;
+    position: absolute;
+    left: 699px;
+}

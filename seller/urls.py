@@ -1,15 +1,16 @@
 from django.urls import path
 from . import views
 
-urlpatterns=[ 
-    path('seller-login',views.login),
-    path('add products and categories',views.add_products_categories),
-    path('coupons',views.coupons),
-    path('user details',views.customer_details),
-    path('track order',views.track_order),
-    
-    path('user verification',views.user_verification),
-    path('related products',views.related_products),
-    
 
+app_name = "seller"
+urlpatterns=[ 
+    
+    path('add product',views.add_products_categories,name='add_product'),
+    path('home',views.s_home,name='seller_home'),
+    path('orders',views.orders,name='orders'),
+    path('change password',views.change_password,name='change_password'),   
+    path('profile',views.profile,name='profile'),
+    path('stock_update',views.stock_update,name='stock_update'),
+    path('logout',views.logout,name='logout')
+    
 ]

@@ -1,0 +1,58 @@
+{% extends 'common/home.html' %}
+{% load static %} 
+{% block header %} 
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+<style>
+ /* .img3{
+    position: absolute;
+    top: 30px;
+    
+}  */
+ /* .img1{
+    position: absolute;
+    right: 300px;
+}  */
+</style>
+{% endblock %}
+{% block seller %}
+{% if 'customerid' in request.session %} 
+<p class="nav-link"><b>Welcome,{{userdata.c_firstname}}</b></p>
+{% endif %}
+{% endblock %}
+
+{% block account %}
+<li class="nav-item ">
+<a href="{% url 'customer:my_account' %}" class=""><img src="{% static 'images/account.png' %}" alt="account" width="32px" height="33px" class="img3" ></a>
+</li>
+{% endblock %}
+
+
+
+{% block content %}
+ <!-- <div class="container text-center">
+    
+    <div class="row">
+       
+      <div class="col-lg-2 col-md-3 col-6 col-sm-4"> -->
+        {% for product in products %}
+        <div class="card" style="width: 18rem;">
+          <a href="{% url 'customer:view_product' product.id %}">
+            <img src="{{product.p_image.url}}" class="card-img-top" alt="...">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{product.p_name}}</h5>
+            <p class="card-text">{{product.p_details}}</p>
+            <p class="card-text">Price : {{product.p_price}} Rupees</p>
+            <p class="card-text">Sold by : {{product.seller.s_firstname}}</p>
+            <a href="{% url 'customer:add_to_cart' product.id %}" class="btn btn-dark">Add to cart</a>
+          </div>
+        </div>
+        {% endfor %}
+      <!-- </div>
+    
+    </div>
+    
+    </div> -->
+    
+
+{% endblock %}

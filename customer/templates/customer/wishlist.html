@@ -1,12 +1,116 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>wishlist</title>
+    <link rel="stylesheet" href="{% static 'css/wishlist.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
 </head>
 <body>
-    wishlist
+    <nav class="navbar navbar-expand-lg fixed-top ">
+   
+  
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'images/th.jpg' %}" alt="" width="70" height="50" class="d-inline-block align-text-center">
+          Choose Yours
+        </a>
+    
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>  
+          <span class="navbar-toggler-icon"></span> 
+          <span class="navbar-toggler-icon"></span> 
+        </button>
+        <div class="collapse navbar-collapse" id="toggleMobileMenu">
+          <ul class="navbar-nav text-center ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="#"> <b> WOMEN </b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"> <b> MEN</b> </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " href="#"> <b> KIDS</b></a>
+              
+            </li>
+            <li class="nav-item">
+              <a class="nav-link access"> <b>ACCESSORIES</b> </a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search for products" aria-label="Search">
+            <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+          </form>
+          <img src="{% static 'images/wishlist.webp' %}" alt="wishlist" width="30px" height="30px" class="img1">
+          <img src="{% static 'images/cart.png' %}" alt="cart" width="35px" height="35px" class="img2">
+        </div>
+      </div>
+    </nav>
+
+    <br> <br> <br> <br> <br><br> <br> <br> <br> <br><br> <br> <br> <br> <br><br> <br> <br> <br> <br><br> <br> <br> <br> <br><br> <br> <br> <br> <br>
+
+
+
+
+
+
+     <!-- footer -->
+  <footer class="pt-5 pb-4" style="background-color:rgb(152, 251, 152);">
+        
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold">Choose yours</h5>
+                <hr class="mb-4">
+                <p><a href="#" style="text-decoration: none;">Who we are</a><br></p>
+                <p><a href="#" style="text-decoration: none;">Terms and conditions</a><br></p>
+                <p><a href="#" style="text-decoration: none;">Returns and Refunds Policy</a>
+                </p>
+                
+            </div>
+        <div class="col-md-2 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold">Help</h5>
+            <hr class="mb-4">
+            <p><a href="#" style="text-decoration: none;">Track Your Orders</a><br></p>
+            <p><a href="#" style="text-decoration: none;">Returns</a><br></p>
+            <p><a href="#" style="text-decoration: none;">Cancellations</a>
+            </p>
+            <p><a href="#" style="text-decoration: none;">Customer Care</a>
+            </p>
+
+        </div>
+
+       <div class="col-md-2 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold">Shop by</h5>
+            <hr class="mb-4">
+            <p><a href="#" style="text-decoration: none;">Women</a><br></p>
+            <p><a href="#" style="text-decoration: none;">Men</a><br></p>
+            <p><a href="#" style="text-decoration: none;">Kids</a>
+            </p>
+            <p><a href="#" style="text-decoration: none;">Accessories</a>
+            </p>
+
+        </div>
+        
+        <div class="row "></div>
+        <div class="col-md-8 col-lg-8 col-xl-12 mx-auto mt-3">
+            <hr class="mb-4">
+            <h5 class="text-uppercase mb-4 font-weight-bold">Payment methods</h5>
+            <img src="{% static 'images/payment.png' %}" alt="pay" width="450px" height="120px" class="img-fluid">
+        </div>
+
+
+    
+
+
+    </div> 
+</div>
+</footer>
 </body>
 </html>
