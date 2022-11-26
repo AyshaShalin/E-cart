@@ -4,11 +4,13 @@ from django.shortcuts import render,redirect
 from common.models import Seller
 from seller.decorator import auth_seller
 from seller.models import Product
+from ecom_admin.models import Category
 
 # Create your views here.
 @ auth_seller
 def add_products_categories (request):
     seller = Seller.objects.get(id = request.session ["sellerid"])
+    categories = Category.objects.all()
     msg =''
     if request.method == 'POST' :
         if 'add_product' in request.POST :
@@ -31,7 +33,7 @@ def add_products_categories (request):
             )
             product.save()
             msg = 'Succesfully added product'
-    return render (request,'seller/add_products.html',{"sellerdata":seller , 'message':msg})  
+    return render (request,'seller/add_products.html',{"sellerdata":seller , 'message':msg ,"categories" : categories})  
 
 @ auth_seller
 def s_home (request):

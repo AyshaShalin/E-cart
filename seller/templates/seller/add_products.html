@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{% url 'seller:logout' %}">
                         <span class="icon"><img src="{% static 'images/logout.png' %}" alt="logout"></span>
                         <span class="item">Logout</span>
                     </a>
@@ -133,11 +133,9 @@
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Select Category</label>
                 <div class="col-sm-10">
                   <select name="category" id="">
-                    <option value="">category</option>
-                    <option value="1">Women</option>
-                    <option value="2">Men</option>
-                    <option value="3">Kids</option>
-                    <option value="4">Accessories</option>
+                    {% for category in categories %}
+                    <option value="{{category.id}}">{{category.name}}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div>
