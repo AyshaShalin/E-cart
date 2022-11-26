@@ -13,7 +13,8 @@
 
 } */
 .navbar {
-    background-color: rgb(152, 251, 152);
+    /* background-color: rgb(152, 251, 152); */
+    background-color: #c89666;
     height: 90px;   
 }
 .navbar a{
@@ -93,4 +94,7 @@
 .d-flex{
     padding-right: 40px;
     
+}
+.footer{
+    height: 400px;
 }

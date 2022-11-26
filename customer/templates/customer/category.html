@@ -1,0 +1,35 @@
+{% extends 'common/home.html' %} 
+{% load static %} 
+{% block header %} 
+{% endblock %}
+{% block seller %}
+{% endblock %}
+{% block account %}
+<li class="nav-item ">
+<a href="{% url 'customer:my_account' %}" class=""><img src="{% static 'images/account.png' %}" alt="account" width="32px" height="33px" class="img3" ></a>
+</li>
+{% endblock %}
+
+{% block content %}
+<br>
+<div id="products" class="col-lg-9 mx-auto">
+    <div class="row mx-auto">                                                           
+      {% for product in products %}                                       
+      <div class="card mb-3 mt-5 me-auto ms-auto" style="width: 15rem; display: inline-block;">
+        <a href="{% url 'customer:view_product' product.id %}">
+        <img src="{{product.p_image.url}}" class="card-img-top" alt="...">
+      </a>
+        <div class="card-body">
+         <h5 class="card-title">{{product.p_name}}</h5>
+         <p class="card-text">{{product.p_details}}</p>
+         <p class="card-text">Price : {{product.p_price}} Rupees</p>
+         <p class="card-text">Sold by : {{product.seller.s_firstname}}</p> 
+         <p class="card-text">{{product.category.name}}</p> 
+         <!-- <a href="{% url 'customer:add_to_cart' product.id %}" class="btn btn-dark">Add to cart</a> -->
+        </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

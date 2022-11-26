@@ -4,6 +4,7 @@ from common.models import Customer, Seller
 from customer import views
 from . models import Customer
 from seller.models import Product
+from ecom_admin.models import Category
 
 
 # Create your views here.
@@ -11,7 +12,8 @@ from seller.models import Product
 
 def home (request):
     product = Product.objects.all()
-    return render (request,'common/home.html',{"products" : product}) 
+    category = Category.objects.all()
+    return render (request,'common/home.html',{"products" : product ,"categories" : category}) 
 
 def c_signup (request) :
     if request.method == 'POST' :
@@ -46,6 +48,7 @@ def c_login (request) :
             return redirect ('customer:home')
         else :
             message = "Enter a valid email and password"
+            
     return render (request,'common/customer_login.html' ,{"message" : message})    
 
 
@@ -75,6 +78,7 @@ def s_signup (request) :
                 s_image         = seller_image
             )
             seller.save()
+            return render (request,'seller/seller_home.html')
  
 
     return render (request,'common/seller_signup.html')

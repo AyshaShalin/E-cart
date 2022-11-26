@@ -13,7 +13,7 @@
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
 </head>
-<body style="background-color: rgb(152, 251, 152)">
+<body style="background-color: #c89666">
     <section class="Form my-4 mx-5" >
         <div class="container">
           <div class="row g-0" id="row">
@@ -28,18 +28,20 @@
               <div class="form-row">
                 <div class="col-lg-7 px-3 ">
                   <label for="exampleInputmob" class="form-label pt-2">Enter your email</label>
-                  <input type="email" class="form-control my-3 p-2 " id="exampleInputmob" name="email">
+                  <input type="email" class="form-control my-3 p-2 " id="exampleInputmob" name="email"><br>
+                  <span id="span1"></span>
                 </div>
               <div class="form-row">
                   <div class="col-lg-7 px-3 ">
                     <label for="exampleInputmob" class="form-label pt-2">Enter your password</label>
                     <input type="password" class="form-control my-3 p-2 " id="exampleInputpassword" name="password">
+                    <span id="span2"></span>
                   </div>
                </div>
                <span>{{message}}</span>
               <div class="form-row">
                 <div class="col-lg-7">
-                  <button type="submit" class="btn btn-outline-dark mt-3 mb-3" name="s_login">CONTINUE</button>
+                  <button type="submit" class="btn btn-outline-dark mt-3 mb-3" name="s_login" onclick="return check()">CONTINUE</button>
                   <span class="mb-4 mx-4">If you are new to Choose Yours,kindly signup</span> 
                  <a href="{% url 'common:seller_signup' %}"><button type="button" class="btn  btn-outline-dark mt-4 mb-3">SIGN UP</button></a> 
                 </div>
@@ -56,6 +58,6 @@
         </div>
       </section>
     
-
+<script src="{% static 'js/s_valid.js' %}"></script>
 </body>
 </html>

@@ -1,0 +1,139 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/seller.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<style>
+    #approved{
+        margin-left: 344px;
+        margin-top: 77px;
+        width: 900px;
+    }
+    a{
+        color: var(--bs-link-color);
+        text-decoration: none;
+    }
+    ul{
+        padding-left: 0;
+    } 
+    .btn{
+        color: black;
+    }
+    .btn:hover{
+        color: white;
+        
+    }   
+</style>
+</head>
+<body onload= "approved_Seller()">
+
+
+    <div class="wrapper">
+        <!--Top menu -->
+       <div class="sidebar">
+           <!--profile image & text-->
+           <div class="profile">
+            <img src="{% static 'images/admin.jpg' %}" alt="profile_picture">
+            <h3>Admin</h3>
+            <!-- <p>Designer</p> -->
+           </div>
+            <!--menu item-->
+            
+            <ul class="ul1">
+             
+                <li>
+                    <a href="{% url 'ecom_admin:home' %}" >
+                        <!-- <span class="icon"><img src="{% static 'images/home.png' %}" alt="add_product" ></span> -->
+                        <span class="item">Home</span>
+                    </a>
+                </li>
+                <li>
+                   
+                    <a href="{% url 'ecom_admin:add_categories' %}">
+                        <!-- <span class="icon"><img src="{% static 'images/user.png' %}" alt="logout"></span> -->
+                        <span class="item">Add categories</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'ecom_admin:approve_seller' %}">
+                        <!-- <span class="icon"><img src="{% static 'images/padlock.png' %}" alt="logout"></span> -->
+                        <span class="item">Approve seller</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'ecom_admin:view_seller' %}">
+                        <!-- <span class="icon"><img src="{% static 'images/padlock.png' %}" alt="logout"></span> -->
+                        <span class="item">sellers info</span>
+                    </a>
+                </li>
+                <li>
+                <li>
+                    <a href="{% url 'ecom_admin:view_user' %}">
+                        <!-- <span class="icon"><img src="{% static 'images/padlock.png' %}" alt="logout"></span> -->
+                        <span class="item">Users info</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'seller:logout' %}">
+                        <!-- <span class="icon"><img src="{% static 'images/logout.png' %}" alt="logout"></span> -->
+                        <span class="item">Logout</span>
+                    </a>
+                </li>
+               
+            </ul>
+        </div>
+    
+        </div>
+    
+        </div>
+
+        <form action="" method="POST">
+        {% csrf_token %}
+            <table class="table table-hover" id="approved" style="border: 1px solid black;" >
+                <thead>
+                <tr>
+                  <!-- <th>ID</th> -->
+                  <th>NAME</th>
+                  <th>ADDRESS</th>
+                  <th>EMAIL</th>
+                  <th>PHONE NO</th>
+                  <th>IMAGE</th>    
+                </tr>
+            </thead>
+            </table>
+        </form>
+
+
+        <script>
+            function approved_Seller(){
+                $.ajaxSetup({
+                    headers : {
+                        "X-CSRFToken" : $('[name=csrfmiddlewaretoken]').val()
+                    }
+                })
+                $.ajax ({
+                    url : "{% url 'ecom_admin:approved_Sellers' %}" ,
+                    method : 'POST' ,
+                    success : function (response) {
+                        console.log(response.data.length)
+                        data = response.data
+                        for (var i = 0; i < data.length; i++) {
+
+                            $('#approved').append("<tr class='tr' id=row" + data[i].id + ">" +"</td><td class='row-data'>"
+                            + data[i].name + "</td><td class='row-data'>" + data[i].address + "</td><td class='row-data'>" + data[i].email + "</td><td class='row-data'>" + data[i].phone + "</td><td class='row-data'> <img src=" + data[i].image + 
+                            " width='100px' height='90px'  style='border-radius:50%;'></td>")
+                        }
+                    }
+                })
+            }
+        </script>

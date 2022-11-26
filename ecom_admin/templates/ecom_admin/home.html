@@ -1,0 +1,82 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/seller.css' %}">
+    
+</head>
+
+<body>
+ 
+   
+    <div class="wrapper">
+        <!--Top menu -->
+       <div class="sidebar">
+           <!--profile image & text-->
+           <div class="profile">
+            <img src="{% static 'images/admin.jpg' %}" alt="profile_picture">
+            <h3>Admin</h3>
+            <!-- <p>Designer</p> -->
+           </div>
+            <!--menu item-->
+        
+            <ul>
+           
+                <!-- <li>
+                    <a href="{% url 'ecom_admin:home' %}" >
+                        <!-- <span class="icon"><img src="{% static 'images/home.png' %}" alt="add_product" ></span> -->
+                        <!-- <span class="item">Home</span> -->
+                    <!-- </a>
+                </li>
+                <li> -->
+                   
+                    <a href="{% url 'ecom_admin:add_categories' %}">
+                        <!-- <span class="icon"><img src="{% static 'images/user.png' %}" alt="logout"></span> -->
+                        <span class="item">Add categories</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'ecom_admin:approve_seller' %}">
+                        <!-- <span class="icon"><img src="{% static 'images/padlock.png' %}" alt="logout"></span> -->
+                        <span class="item">Approve seller</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'ecom_admin:view_seller' %}">
+                        <!-- <span class="icon"><img src="{% static 'images/padlock.png' %}" alt="logout"></span> -->
+                        <span class="item">sellers info</span>
+                    </a>
+                </li>
+                <li>
+                <li>
+                    <a href="{% url 'ecom_admin:view_user' %}">
+                        <!-- <span class="icon"><img src="{% static 'images/padlock.png' %}" alt="logout"></span> -->
+                        <span class="item">Users info</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <!-- <span class="icon"><img src="{% static 'images/logout.png' %}" alt="logout"></span> -->
+                        <span class="item">Logout</span>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-cog"></i></span>
+                        <span class="item">Settings</span>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    
+        </div>
+    
+        </div>
+        {% block content %} 
+        {% endblock %}
+</body>
+</html>

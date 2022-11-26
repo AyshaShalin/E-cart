@@ -1,0 +1,44 @@
+{% extends 'common/home.html' %}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/personal_info.css' %}">
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
+{% endblock %}
+{% block seller %}
+{% endblock %}
+{% block account %}
+<li class="nav-item ">
+<a href="{% url 'customer:my_account' %}" class=""><img src="{% static 'images/account.png' %}" alt="account" width="32px" height="33px" class="img3" ></a>
+</li>
+{% endblock %}
+{% block content %}
+<span class="orders"><h2> Orders</h2></span>
+<span class="my"><a href="" class="link"> My orders</a></span>
+<br><br>
+
+<span class="info"><h2>Profile</h2> </span>
+<span class="person"><a href="{% url 'customer:personal_info' %}" class="link">Personal Information</a>   <br>
+<a href="{% url 'customer:change_password' %}" class="link">Change password</a> 
+</span>
+<br><br>
+<form action="" method="POST" id="form" class="align-center">
+    {% csrf_token %}
+    <label for="">First Name :</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="text"  id="name1" class="text-md-left p-4" name="first_name"> <br><br>
+     <label for="">Second Name :</label> &nbsp;
+     <input type="text"  id="name2" class="text-md-left p-4" name="second_name"> <br><br>
+     <label for="">Address :</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <textarea name="address" id="address" cols="47" rows="2"  class="text-md-left p-4" ></textarea>  <br><br>
+     <button type="submit" class="btn btn-outline-dark" id="btn1">SAVE </button>
+      
+    
+    
+ </div>
+
+</form>  
+
+<!-- <div>
+    Welcome
+</div> -->
+
+{% endblock %} 

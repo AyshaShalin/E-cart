@@ -29,7 +29,7 @@
            <!--profile image & text-->
            <div class="profile">
             <img src="{{sellerdata.s_image.url}}" alt="profile_picture"> 
-            <h5>{{sellerdata.s_firstname}}</h3> 
+            <h3>{{sellerdata.s_firstname}}</h3> 
             <!-- <p>Designer</p> -->
             </div>
             <!--menu item-->
@@ -65,9 +65,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'seller:change_password' %}">
-                        <span class="icon"><img src="{% static 'images/padlock.png' %}" alt="logout"></span>
-                        <span class="item">Change password</span>
+                    <a href="{% url 'seller:product_catalogue' %}">
+                        <span class="icon"><img src="{% static 'images/catalogue1.png' %}" alt="logout" height="23px"></span>
+                        <span class="item">Product catalogue</span>
                     </a>
                 </li>
                 <li>
@@ -76,6 +76,7 @@
                         <span class="item">Logout</span>
                     </a>
                 </li> 
+                
                 <!-- <li>
                     <a href="#">
                         <span class="icon"><i class="fas fa-cog"></i></span>
@@ -95,7 +96,7 @@
         <!-- add_product form begins --> 
        <div class="pro_form">
          
-            <form class="form" method="post" enctype="multipart/form-data">
+            <form class="form" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               <h2>Add product</h2> <br>
               <div class="row mb-3">
@@ -113,7 +114,7 @@
               <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Product details</label>
                 <div class="col-sm-10">
-                  <textarea  id="" cols="30" rows="10" class="textarea" name="product_details"></textarea>
+                  <textarea  id="" cols="45" rows="3" class="textarea" name="product_details" class="form-control"></textarea>
                 </div>
               </div>
               <div class="row mb-3">
@@ -129,6 +130,18 @@
                 </div>
               </div>
               <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Select Category</label>
+                <div class="col-sm-10">
+                  <select name="category" id="">
+                    <option value="">category</option>
+                    <option value="1">Women</option>
+                    <option value="2">Men</option>
+                    <option value="3">Kids</option>
+                    <option value="4">Accessories</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mb-3">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Image of product</label>
                 <div class="col-sm-10">
                   <input type="file" class="form-control mt-3" id="inputPassword3" name="product_image">
@@ -137,13 +150,14 @@
              
       
               <button type="submit" class="btn btn-dark" name="add_product">Add product</button>
-             
-            </form>      
-            
-            <span>
+              <br><br>
+              <span>
                 {{message}}
             </span>
       
+            </form>      
+            <br>
+            
         </div>
     
         

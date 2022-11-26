@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/seller.css' %}">
+  <link rel="stylesheet" href="{% static 'css/add_product.css' %}">
+</head>
+
+<body>
+
+
+
+<div class="wrapper">
+  <!--Top menu -->
+  <div class="sidebar">
+    <!--profile image & text-->
+    <div class="profile">
+      <img src="{% static 'images/admin.jpg' %}" alt="profile_picture">
+      <h3>Admin</h3>
+      <!-- <p>Designer</p> -->
+    </div>
+    <!--menu item-->
+
+    <ul class="ul1">
+      <li>
+      <a href="{% url 'ecom_admin:add_categories' %}">
+        <!-- <span class="icon"><img src="{% static 'images/user.png' %}" alt="logout"></span> -->
+        <span class="item">Add categories</span>
+      </a>
+      </li>
+      <li>
+        <a href="{% url 'ecom_admin:approve_seller' %}">
+          <!-- <span class="icon"><img src="{% static 'images/padlock.png' %}" alt="logout"></span> -->
+          <span class="item">Approve seller</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'ecom_admin:view_seller' %}">
+          <!-- <span class="icon"><img src="{% static 'images/padlock.png' %}" alt="logout"></span> -->
+          <span class="item">sellers info</span>
+        </a>
+      </li>
+      <li>
+      <li>
+        <a href="{% url 'ecom_admin:view_user' %}">
+          <!-- <span class="icon"><img src="{% static 'images/padlock.png' %}" alt="logout"></span> -->
+          <span class="item">Users info</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <!-- <span class="icon"><img src="{% static 'images/logout.png' %}" alt="logout"></span> -->
+          <span class="item">Logout</span>
+        </a>
+      </li>
+      <!-- <li>
+<a href="#">
+  <span class="icon"><i class="fas fa-cog"></i></span>
+  <span class="item">Settings</span>
+</a>
+</li> -->
+    </ul>
+  </div>
+
+</div>
+
+</div>
+
+<div class="container">
+  <form class="form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Name of Categories</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputEmail3" name="name">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-dark" name="add_category">Add </button>
+    <span>{{msg}}</span>
+    
+  </form>
+
+
+</div>
+</div>
+</body>
+
+</html>

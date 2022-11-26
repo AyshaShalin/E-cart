@@ -13,7 +13,14 @@
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     {% block header %}
-    
+    <style>
+      .card{
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+     }
+    </style>
     <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
     {% endblock %}
 </head>
@@ -24,11 +31,11 @@
   
         <div class="navbar-brand" >
           <!-- <img src="{% static 'images/th.jpg' %}" alt="" width="70" height="50" class="d-inline-block align-text-center"> -->
-          Choose Yours
+         E-cart
         </div>
 
         {% block seller %}
-        <a href="{% url 'common:seller_signup' %}" class="nav-link ">Become a seller</a>
+        <a href="{% url 'common:seller_signup' %}" class="nav-link ">Seller</a>
         {% endblock %}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>  
@@ -38,11 +45,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav text-center ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="#"> <b> WOMEN </b></a>
+              <a class="nav-link " aria-current="page" href="{% url 'common:commonhome' %}"> <b> HOME </b></a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#"> <b> MEN</b> </a>
-            </li>
+            </li> -->
             
             <!-- <li class="nav-item">
               <a class="nav-link access"> <b>ACCESSORIES</b> </a>
@@ -90,39 +97,80 @@
     </nav>
   
 
-       <br><br> <br> <br><br>
-  
+      
+  <br><br><br>
   {% block content %}
-  <!-- <div class="container text-center">
-    
-    <div class="row">
-       
-      <div class="col-lg-2 col-md-3 col-6 col-sm-4"> -->
-        {% for product in products %}
-        <div class="card" style="width: 18rem;">
-          <a href="{% url 'customer:view_product' product.id %}">
-            <img src="{{product.p_image.url}}" class="card-img-top" alt="...">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">{{product.p_name}}</h5>
-            <p class="card-text">{{product.p_details}}</p>
-            <p class="card-text">Price : {{product.p_price}} Rupees</p>
-            <p class="card-text">Sold by : {{product.seller.s_firstname}}</p>
-            <a href="{% url 'customer:add_to_cart' product.id %}" class="btn btn-dark">Add to cart</a>
-          </div>
-        </div>
-        {% endfor %}
-      <!-- </div>
-    
+  <img src="{% static 'images/banner.jpg' %}" alt="banner" width="100%"  class="">
+  <br>
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-    
-    </div> -->
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="{% static 'images/banner5.jpg' %}" class="d-block w-100" alt="..." height="400px">
+      </div>
+      <div class="carousel-item" data-bs-interval="10000">
+        <img src="{% static 'images/banner4.jpg' %}" class="d-block w-100" alt="..." height="400px">
+      </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <br> 
+  <div class="container-fluid " > 
+
+    <div class="row">
+
+      <!-- filter -->
+      <div class="col-lg-3 mx-auto mt-5">
+     
+        <div class="list-group">
+          {% for category in categories %}
+          <a href="{% url 'customer:category' category.id %}" class="list-group-item list-group-item-action " aria-current="true">
+            {{category.name}}
+          </a>
+          {% endfor %}
+         
+        </div>
+        
+      </div>
+
+    <div id="products" class="col-lg-9 mx-auto">
+       <div class="row mx-auto">
+    {% for product in products %}
+    <div class="card mt-3 ms-auto me-auto text-center" style="width: 18rem; display: inline-block">
+      <a href="{% url 'customer:view_product' product.id %}">
+        <img src="{{product.p_image.url}}" class="card-img-top img-fluid" alt="...">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">{{product.p_name}}</h5>
+        <!-- <p class="card-text">{{product.p_details}}</p> -->
+        <p class="card-text">Price : {{product.p_price}} Rupees</p>
+        <!-- <p class="card-text">Sold by : {{product.seller.s_firstname}}</p> -->
+        <!-- <a href="{% url 'customer:add_to_cart' product.id %}" class="btn btn-dark">Add to cart</a> -->
+        <p class="card-text"> {{product.category.name}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+</div>
+</div>
     
   {% endblock %}
   <br> <br> <br><br> <br> <br> <br> <br>
   
     <!-- footer -->
-    <footer class="pt-5 pb-4" style="background-color:rgb(152, 251, 152);">
+    <footer class="pt-5 pb-4" style="background-color: #c89666;">
           
       <div class="container text-center text-md-left">
           <div class="row text-center text-md-left">
